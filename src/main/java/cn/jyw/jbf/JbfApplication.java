@@ -26,14 +26,16 @@ public class JbfApplication implements CommandLineRunner {
         fruitMap.add(apple);
         Strawberry strawberry = new Strawberry(random.nextInt(100), 13);
         fruitMap.add(strawberry);
+        // 1 初始化
         Calculator basicCalculator = new Calculator.BasicCalculator();
-        System.out.println("第问");
+        System.out.println("苹果数量:" + apple.getNumber() + "   草莓数量:" + strawberry.getNumber());
         double result = apple.getTotalPrice() + strawberry.getTotalPrice();
         System.out.println("1:基础计价： " + basicCalculator.calculateTotalPrice(fruitMap) + "   验证结果:" + result);
         // 2 增加芒果
         Fruit mango = new Mango(random.nextInt(100), 20);
         fruitMap.add(mango);
         result = apple.getTotalPrice() + strawberry.getTotalPrice() + mango.getTotalPrice();
+        System.out.println("芒果数量:" + mango.getNumber());
         System.out.println("2:基础计价： " + basicCalculator.calculateTotalPrice(fruitMap) + "   验证结果:" + result);
         // 3 草莓8折扣
         Calculator discountedCalculator = new Calculator.DiscountedStrawberryCalculator();
